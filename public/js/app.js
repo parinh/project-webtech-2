@@ -3035,16 +3035,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -25111,7 +25101,7 @@ var render = function() {
               _c("div", { staticClass: "flex-shrink-0 flex items-center" }, [
                 _c(
                   "a",
-                  { attrs: { href: "/dashboard" } },
+                  { attrs: { href: "/posts" } },
                   [
                     _c("jet-application-mark", {
                       staticClass: "block h-9 w-auto"
@@ -25121,27 +25111,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" },
-                [
-                  _c(
-                    "jet-nav-link",
-                    {
-                      attrs: {
-                        href: "/dashboard",
-                        active: _vm.$page.currentRouteName == "dashboard"
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Dashboard\n                        "
-                      )
-                    ]
-                  )
-                ],
-                1
-              )
+              _vm._m(0)
             ]),
             _vm._v(" "),
             _c(
@@ -25159,60 +25129,23 @@ var render = function() {
                           key: "trigger",
                           fn: function() {
                             return [
-                              _vm.$page.jetstream.managesProfilePhotos
-                                ? _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
-                                    },
-                                    [
-                                      _c("img", {
-                                        staticClass:
-                                          "h-8 w-8 rounded-full object-cover",
-                                        attrs: {
-                                          src: _vm.$page.user.profile_photo_url,
-                                          alt: _vm.$page.user.name
-                                        }
-                                      })
-                                    ]
-                                  )
-                                : _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out"
-                                    },
-                                    [
-                                      _c("div", [
-                                        _vm._v(_vm._s(_vm.$page.user.name))
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "ml-1" }, [
-                                        _c(
-                                          "svg",
-                                          {
-                                            staticClass: "fill-current h-4 w-4",
-                                            attrs: {
-                                              xmlns:
-                                                "http://www.w3.org/2000/svg",
-                                              viewBox: "0 0 20 20"
-                                            }
-                                          },
-                                          [
-                                            _c("path", {
-                                              attrs: {
-                                                "fill-rule": "evenodd",
-                                                d:
-                                                  "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
-                                                "clip-rule": "evenodd"
-                                              }
-                                            })
-                                          ]
-                                        )
-                                      ])
-                                    ]
-                                  )
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass:
+                                      "h-8 w-8 rounded-full object-cover",
+                                    attrs: {
+                                      src: _vm.$page.user.profile_photo_url,
+                                      alt: _vm.$page.user.name
+                                    }
+                                  })
+                                ]
+                              )
                             ]
                           },
                           proxy: true
@@ -25753,7 +25686,24 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" },
+      [
+        _c("a", { attrs: { href: "/posts" } }, [
+          _vm._v(
+            "\n                            Back to All Posts\n                        "
+          )
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -42202,8 +42152,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/mcmxcix/sites/webtech_project2/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/mcmxcix/sites/webtech_project2/resources/css/app.css */"./resources/css/app.css");
+__webpack_require__(/*! /Users/mcmxcix/sites/lara8-200/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/mcmxcix/sites/lara8-200/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })

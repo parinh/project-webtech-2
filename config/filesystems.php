@@ -55,6 +55,20 @@ return [
             'visibility' => 'public',
         ],
 
+        'images' => [
+            'driver' => 'local',
+            'root' => storage_path('app/images'),
+            'url' => env('APP_URL').'/storage-images',
+            'visibility' => 'public',
+        ],
+
+        'pdf' => [
+            'driver' => 'local',
+            'root' => storage_path('app/pdf'),
+            'url' => env('APP_URL').'/storage-pdf',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -80,6 +94,8 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('storage-images') => storage_path('app/images'),
+        public_path('storage-pdf') => storage_path('app/pdf'),
     ],
 
 ];

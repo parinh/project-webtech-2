@@ -1,0 +1,51 @@
++-----------+--------------------------------+--------------------------------+-----------------------------------------------------------------------------------+
+| Method    | URI                            | Name                           | Action                                                                            |
++-----------+--------------------------------+--------------------------------+-----------------------------------------------------------------------------------+
+| GET|HEAD  | /                              |                                | Closure                                                                           |
+| POST      | api/posts                      | api.posts.store                | App\Http\Controllers\API\PostsController@store                                    |
+| GET|HEAD  | api/posts                      | api.posts.index                | App\Http\Controllers\API\PostsController@index                                    |
+| DELETE    | api/posts/{post}               | api.posts.destroy              | App\Http\Controllers\API\PostsController@destroy                                  |
+| PUT|PATCH | api/posts/{post}               | api.posts.update               | App\Http\Controllers\API\PostsController@update                                   |
+| GET|HEAD  | api/posts/{post}               | api.posts.show                 | App\Http\Controllers\API\PostsController@show                                     |
+| GET|HEAD  | api/user                       |                                | Closure                                                                           |
+| GET|HEAD  | dashboard                      | dashboard                      | Closure                                                                           |
+| GET|HEAD  | forgot-password                | password.request               | Laravel\Fortify\Http\Controllers\PasswordResetLinkController@create               |
+| POST      | forgot-password                | password.email                 | Laravel\Fortify\Http\Controllers\PasswordResetLinkController@store                |
+| POST      | login                          |                                | Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@store             |
+| GET|HEAD  | login                          | login                          | Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@create            |
+| POST      | logout                         | logout                         | Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy           |
+| GET|HEAD  | page                           | pages.index                    | App\Http\Controllers\PagesController@index                                        |
+| GET|HEAD  | pages/{id}                     | pages.show                     | App\Http\Controllers\PagesController@show                                         |
+| GET|HEAD  | posts                          | posts.index                    | App\Http\Controllers\PostsController@index                                        |
+| POST      | posts                          | posts.store                    | App\Http\Controllers\PostsController@store                                        |
+| GET|HEAD  | posts/create                   | posts.create                   | App\Http\Controllers\PostsController@create                                       |
+| PUT|PATCH | posts/{post}                   | posts.update                   | App\Http\Controllers\PostsController@update                                       |
+| GET|HEAD  | posts/{post}                   | posts.show                     | App\Http\Controllers\PostsController@show                                         |
+| DELETE    | posts/{post}                   | posts.destroy                  | App\Http\Controllers\PostsController@destroy                                      |
+| GET|HEAD  | posts/{post}/edit              | posts.edit                     | App\Http\Controllers\PostsController@edit                                         |
+| POST      | register                       |                                | Laravel\Fortify\Http\Controllers\RegisteredUserController@store                   |
+| GET|HEAD  | register                       | register                       | Laravel\Fortify\Http\Controllers\RegisteredUserController@create                  |
+| POST      | reset-password                 | password.update                | Laravel\Fortify\Http\Controllers\NewPasswordController@store                      |
+| GET|HEAD  | reset-password/{token}         | password.reset                 | Laravel\Fortify\Http\Controllers\NewPasswordController@create                     |
+| GET|HEAD  | sanctum/csrf-cookie            |                                | Laravel\Sanctum\Http\Controllers\CsrfCookieController@show                        |
+| POST      | two-factor-challenge           |                                | Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController@store    |
+| GET|HEAD  | two-factor-challenge           | two-factor.login               | Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController@create   |
+| DELETE    | user                           | current-user.destroy           | Laravel\Jetstream\Http\Controllers\Inertia\CurrentUserController@destroy          |
+| POST      | user/api-tokens                | api-tokens.store               | Laravel\Jetstream\Http\Controllers\Inertia\ApiTokenController@store               |
+| GET|HEAD  | user/api-tokens                | api-tokens.index               | Laravel\Jetstream\Http\Controllers\Inertia\ApiTokenController@index               |
+| DELETE    | user/api-tokens/{token}        | api-tokens.destroy             | Laravel\Jetstream\Http\Controllers\Inertia\ApiTokenController@destroy             |
+| PUT       | user/api-tokens/{token}        | api-tokens.update              | Laravel\Jetstream\Http\Controllers\Inertia\ApiTokenController@update              |
+| POST      | user/confirm-password          |                                | Laravel\Fortify\Http\Controllers\ConfirmablePasswordController@store              |
+| GET|HEAD  | user/confirm-password          | password.confirm               | Laravel\Fortify\Http\Controllers\ConfirmablePasswordController@show               |
+| GET|HEAD  | user/confirmed-password-status | password.confirmation          | Laravel\Fortify\Http\Controllers\ConfirmedPasswordStatusController@show           |
+| DELETE    | user/other-browser-sessions    | other-browser-sessions.destroy | Laravel\Jetstream\Http\Controllers\Inertia\OtherBrowserSessionsController@destroy |
+| PUT       | user/password                  |                                | Laravel\Fortify\Http\Controllers\PasswordController@update                        |
+| GET|HEAD  | user/profile                   | profile.show                   | Laravel\Jetstream\Http\Controllers\Inertia\UserProfileController@show             |
+| PUT       | user/profile-information       |                                | Laravel\Fortify\Http\Controllers\ProfileInformationController@update              |
+| DELETE    | user/profile-photo             | current-user-photo.destroy     | Laravel\Jetstream\Http\Controllers\Inertia\ProfilePhotoController@destroy         |
+| DELETE    | user/two-factor-authentication |                                | Laravel\Fortify\Http\Controllers\TwoFactorAuthenticationController@destroy        |
+| POST      | user/two-factor-authentication |                                | Laravel\Fortify\Http\Controllers\TwoFactorAuthenticationController@store          |
+| GET|HEAD  | user/two-factor-qr-code        |                                | Laravel\Fortify\Http\Controllers\TwoFactorQrCodeController@show                   |
+| POST      | user/two-factor-recovery-codes |                                | Laravel\Fortify\Http\Controllers\RecoveryCodeController@store                     |
+| GET|HEAD  | user/two-factor-recovery-codes |                                | Laravel\Fortify\Http\Controllers\RecoveryCodeController@index                     |
++-----------+--------------------------------+--------------------------------+-----------------------------------------------------------------------------------+

@@ -58,4 +58,20 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public  function  posts(){
+        return $this->hasMany(Post::class);
+    }
+
+    public  function  isAdmin(){
+        return $this->role === 'ADMIN';
+    }
+
+    public  function  isCreator(){
+        return $this->role === 'CREATOR';
+    }
+
+    public  function  isRole($role){
+        return $this->role === $role;
+    }
 }
