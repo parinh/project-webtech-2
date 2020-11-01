@@ -28,7 +28,7 @@ class AttachmentController extends Controller
     public function create()
     {
 
-        return view('attachments.create');
+        return view('posts.create');
     }
 
     /**

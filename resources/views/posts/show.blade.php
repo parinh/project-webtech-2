@@ -17,8 +17,9 @@
 
     <p>{{ $post->content }}</p>
 
-    <div style="height:800px">
-        <embed src="{{ asset("{$attachment->asset_path}/{$attachment->file_name}") }}" type="{{ $attachment->file_type }}" width="100%" height="800px">
-    </div>
+
+
+
+
 
 @endsection

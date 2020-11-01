@@ -21,8 +21,7 @@
             <input type="text" class="form-control" @error('topic') is-invalid @enderror id="topic" {{--id ต้องชื่อเหมือนกันใน loop for each  --}}
                 name="topic" {{--สร้างชื่อให้ตัวแปร--}}
                 value="{{ old('topic') }}" {{--เวลา error แล้วตัวหนังสือไม่หานน--}}
-                   aria-describedby="topicHelp">
-            <small id="topicHelp" class="form-text text-muted">
+                   aria-describedby="topicHelpqt text-muted">
                 Post topic is required
             </small>
             @error('topic') {{--การทำให้ช่องขึ้นแดงเวลาเกิด error ที่ช่องนั้น--}}

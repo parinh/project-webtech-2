@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attachment;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Gate;
@@ -47,10 +48,31 @@ class PostsController extends Controller
             'content' => 'required|min:5|max:500'
         ]);
         $post = new Post;
+
         $post->topic = $request->input('topic');
         $post->content = $request->input('content');
         $post->user_id = $request->user()->id;
+
+        $uploaded_file = $request->file('uploaded_file');
+        // ต้องทำ validate ก่อน
+
+        $attachment = new Attachment();
+        $attachment->post_id = $post->id;
+        $attachment->file_type = $uploaded_file->getClientMimeType();
+        $attachment->name = $uploaded_file->getClientOriginalName();
+        $attachment->file_name = $attachment->post_id . '-' . time() . '.' . $uploaded_file->getClientOriginalExtension();
+        if ($attachment->file_type === 'application/pdf') {
+            $attachment->asset_path = 'storage-pdf';
+            $disk = 'pdf';
+        } else {
+            $attachment->asset_path = 'storage-images';
+            $disk = 'images';
+        }
+        $path = $uploaded_file->storeAs('', $attachment->file_name, $disk);
+
         $post->save();
+
+
         return redirect()->route('posts.index');
         //นำค่าใหม่มาใส่ใน store แล้วก็พแเสร็จก็ไปเปิดหน้า index
     }
