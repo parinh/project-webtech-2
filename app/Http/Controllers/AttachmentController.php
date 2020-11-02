@@ -41,25 +41,25 @@ class AttachmentController extends Controller
     public function store(Request $request)
     {
 
-        $uploaded_file = $request->file('uploaded_file');
-        // ต้องทำ validate ก่อน
-
-        $attachment = new Attachment();
-        $attachment->post_id = 1;
-        $attachment->file_type = $uploaded_file->getClientMimeType();
-        $attachment->name = $uploaded_file->getClientOriginalName();
-        $attachment->file_name = $attachment->post_id . '-' . time() . '.' . $uploaded_file->getClientOriginalExtension();
-        if ($attachment->file_type === 'application/pdf') {
-            $attachment->asset_path = 'storage-pdf';
-            $disk = 'pdf';
-        } else {
-            $attachment->asset_path = 'storage-images';
-            $disk = 'images';
-        }
-        $path = $uploaded_file->storeAs('', $attachment->file_name, $disk);
-        $attachment->save();
-
-        return redirect()->route('attachments.index');
+//        $uploaded_file = $request->file('uploaded_file');
+//        // ต้องทำ validate ก่อน
+//
+//        $attachment = new Attachment();
+//        $attachment->post_id = 1;
+//        $attachment->file_type = $uploaded_file->getClientMimeType();
+//        $attachment->name = $uploaded_file->getClientOriginalName();
+//        $attachment->file_name = $attachment->post_id . '-' . time() . '.' . $uploaded_file->getClientOriginalExtension();
+//        if ($attachment->file_type === 'application/pdf') {
+//            $attachment->asset_path = 'storage-pdf';
+//            $disk = 'pdf';
+//        } else {
+//            $attachment->asset_path = 'storage-images';
+//            $disk = 'images';
+//        }
+//        $path = $uploaded_file->storeAs('', $attachment->file_name, $disk);
+//        $attachment->save();
+//
+//        return redirect()->route('attachments.index');
     }
 
     /**
@@ -97,7 +97,7 @@ class AttachmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -108,6 +108,8 @@ class AttachmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $attachment = Attachment::findOrFail($id);
+        $attachment->delete();
+        return redirect()->route('posts.index');
     }
 }

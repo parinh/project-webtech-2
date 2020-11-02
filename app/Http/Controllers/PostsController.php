@@ -59,10 +59,9 @@ class PostsController extends Controller
 
         $uploaded_file = $request->file('uploaded_file');
 
-        if (isNull($uploaded_file)){
-
-        }
-        else { //ติดตั้ง
+        if (is_null($uploaded_file)){}
+            //do not thing
+        else{
             $attachment = new Attachment();
             $attachment->post_id = $post->id;
             $attachment->file_type = $uploaded_file->getClientMimeType();
@@ -90,16 +89,15 @@ class PostsController extends Controller
      */
     public function show($id) //แสดงข้อมูลตามที่กำหนด $post = \App\Models\post::find(1) ไว้หาใน tinker มีอีกอันคือ ::findOrFail(100) เวลาหาไม่เจอแล้วจะออกเลย
     { //คือเวลาใส่ id ในพาทไปมันจะพาไปข้อมูลมูลตามไอดีนั้นอะ
-        $attachment = Attachment::class;
         $post = Post::findOrFail($id); //ถ้าหาไม่เจอให้ notfound เลย ไม่ null
         $post->view_count++;//เพิ่มค่า view count 1
         $post->save();
 
-        $attachment = Attachment::findOrFail($id);
-        $attachment->save();
+        $attachments = $post->attachments;
+
         return view('posts.show', [
             'post' => $post,
-            'attachment' => $attachment
+            'attachments' => $attachments
         ]);
     }
 
@@ -115,8 +113,11 @@ class PostsController extends Controller
         $post = Post::findOrFail($id); //ให้มันหา id ของ post นั้น
         $this->authorize('update',$post); //ทำตาม policy ไปดู
 
+        $attachments = $post->attachments;
+
         return view('posts.edit',[
-            'post' => $post
+            'post' => $post,
+            'attachments' => $attachments
         ]);
     }
 
