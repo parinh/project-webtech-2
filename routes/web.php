@@ -25,19 +25,15 @@ Route::get('/page',[PagesController::class,'index'])//อีกวิธีใ�
     //return view('pages.index'); //ไปเรียกใช้ index ในโฟลเดอร์ page
 //})->name('pages.index'); //ตั้งชื่อให้ เพื่อจะได้เอาไปเรียกเวลา link หน้า
 
+Route::put('/attachmentUpdate/{id}',[PostsController::class,'attachmentUpdate'])
+    ->name('posts.attachmentUpdate');
+
 Route::get('/pages/test-file', [PagesController::class, 'test_file']);
 
 
 Route::get('/pages/{id}',[PagesController::class,'show']) //เหมือนข้างบนแต่ว่ารับค่าแล้วส่งไป controller ด้วย
     ->name('pages.show');
-//Route::get('/pages/{id}',function ($id){
-    //return view('pages.show',[ //ใส่ค่าไว้เพื่อส่งไปหน้าแสดงผล ไปดุหน้า show
-       // 'name' => 'Samantha', //set ค่าไว้เพื่อนำไปเรียกใช้
-        //'id' => $id,
-       // 'text' => '<h3> H3 text </h3>',
-        //'array' => []
-   // ]);
-//})->name('pages.show');
+
 
 Route::resource('/posts',\App\Http\Controllers\PostsController::class); //บอกตีวเดียวรวมๆเลย มันใช้ action ได้ทุกตัวเลย
 

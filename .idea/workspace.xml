@@ -24,8 +24,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b3f3fa91-f018-4551-bfa3-eaed18c1783e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AttachmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AttachmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +237,7 @@
       <workItem from="1601361958878" duration="3174000" />
       <workItem from="1601451447926" duration="3576000" />
       <workItem from="1603779827220" duration="26599000" />
-      <workItem from="1604067039113" duration="28509000" />
+      <workItem from="1604067039113" duration="35731000" />
     </task>
     <servers />
   </component>
@@ -297,9 +301,9 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1603803602395" />
-    <state x="750" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1604312630832">
+    <state x="750" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1604319043447">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="750" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1604312630832" />
+    <state x="750" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1604319043447" />
   </component>
 </project>

@@ -97,7 +97,6 @@ class AttachmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-
     }
 
     /**
@@ -109,7 +108,10 @@ class AttachmentController extends Controller
     public function destroy($id)
     {
         $attachment = Attachment::findOrFail($id);
+        $post_id = $attachment->post_id;
         $attachment->delete();
-        return redirect()->route('posts.index');
+
+
+        return redirect()->route('posts.show',['post' => $post_id]);
     }
 }

@@ -33,28 +33,6 @@
         </div>
 
 
-        @if(!$attachments->isEmpty())
-            @foreach($attachments as $attachment)
-
-                @if ($attachment->file_type === 'application/pdf')
-                    <div style="height:600px">
-                        <embed src="{{ asset("{$attachment->asset_path}/{$attachment->file_name}") }}" type="{{ $attachment->file_type }}" width="100%" height="600px">
-                    </div>
-
-                    <div action="{{route('$attachment.destroy',['$attachment'=> $attachment->id])}}" method="POST">
-                        @method('DELETE')
-                        @csrf
-                        <button type="submit" class="btn btn-danger">
-                            ลบรูป
-                        </button>
-                    </div>
-                @else
-                    <img class="img-thumbnail" src="{{ asset("{$attachment->asset_path}/{$attachment->file_name}") }}" alt="" style="height:60vh">
-                @endif
-
-            @endforeach
-
-        @endif
 
         <button type="submit" class="btn btn-primary">แก้ไข</button>
     </form>
@@ -69,6 +47,7 @@
             ลบโพส
         </button>
     </form>
+
 
 
 @endsection

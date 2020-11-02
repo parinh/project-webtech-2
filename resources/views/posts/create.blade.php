@@ -39,7 +39,7 @@
         </div>
 
         <p>Select file to upload:</p>
-            <input action="{{route('posts.store')}}"  type="file" name="uploaded_file" id="file">
+            <input  type="file" name="uploaded_file" id="file">
 
 
         <button type="submit" class="btn btn-primary">สร้าง</button>
