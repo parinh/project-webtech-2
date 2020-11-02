@@ -39,7 +39,7 @@
         </div>
 
         <p>Select image to upload:</p>
-            <input action="{{route('attachments.store')}},upload.php" enctype="multipart/form-data" type="file" name="file" id="file">
+            <input action="{{route('posts.store')}},upload.php" enctype="multipart/form-data" type="file" name="file" id="file">
         <button type="submit" class="btn btn-primary">สร้าง</button>
     </form>
 

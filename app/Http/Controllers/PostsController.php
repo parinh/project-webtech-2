@@ -53,28 +53,27 @@ class PostsController extends Controller
         $post->content = $request->input('content');
         $post->user_id = $request->user()->id;
 
-        $uploaded_file = $request->file('uploaded_file');
-        // ต้องทำ validate ก่อน
-
-        $attachment = new Attachment();
-        $attachment->post_id = $post->id;
-        $attachment->file_type = $uploaded_file->getClientMimeType();
-        $attachment->name = $uploaded_file->getClientOriginalName();
-        $attachment->file_name = $attachment->post_id . '-' . time() . '.' . $uploaded_file->getClientOriginalExtension();
-        if ($attachment->file_type === 'application/pdf') {
-            $attachment->asset_path = 'storage-pdf';
-            $disk = 'pdf';
-        } else {
-            $attachment->asset_path = 'storage-images';
-            $disk = 'images';
-        }
-        $path = $uploaded_file->storeAs('', $attachment->file_name, $disk);
-
         $post->save();
 
+        $uploaded_file = $request->file('uploaded_file');
+
+        if(is_null()) { //ติดตั้ง
+            $attachment = new Attachment();
+            $attachment->post_id = $post->id;
+            $attachment->file_type = $uploaded_file->getClientMimeType();
+            $attachment->name = $uploaded_file->getClientOriginalName();
+            $attachment->file_name = $attachment->post_id . '-' . time() . '.' . $uploaded_file->getClientOriginalExtension();
+            if ($attachment->file_type === 'application/pdf') {
+                $attachment->asset_path = 'storage-pdf';
+                $disk = 'pdf';
+            } else {
+                $attachment->asset_path = 'storage-images';
+                $disk = 'images';
+            }
+            $path = $uploaded_file->storeAs('', $attachment->file_name, $disk);
+        }
 
         return redirect()->route('posts.index');
-        //นำค่าใหม่มาใส่ใน store แล้วก็พแเสร็จก็ไปเปิดหน้า index
     }
 
     /**
@@ -85,11 +84,13 @@ class PostsController extends Controller
      */
     public function show($id) //แสดงข้อมูลตามที่กำหนด $post = \App\Models\post::find(1) ไว้หาใน tinker มีอีกอันคือ ::findOrFail(100) เวลาหาไม่เจอแล้วจะออกเลย
     { //คือเวลาใส่ id ในพาทไปมันจะพาไปข้อมูลมูลตามไอดีนั้นอะ
+        $attachment = Attachment::class;
         $post = Post::findOrFail($id); //ถ้าหาไม่เจอให้ notfound เลย ไม่ null
         $post->view_count++;//เพิ่มค่า view count 1
         $post->save();
         return view('posts.show', [
-            'post' => $post
+            'post' => $post,
+            'attachment' => $attachment
         ]);
     }
 
