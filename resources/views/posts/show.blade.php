@@ -18,6 +18,7 @@
     <p>{{ $post->content }}</p>
 
 
+@if($attachment->file_name)
     @if ($attachment->file_type === 'application/pdf')
         <div style="height:600px">
             <embed src="{{ asset("{$attachment->asset_path}/{$attachment->file_name}") }}" type="{{ $attachment->file_type }}" width="100%" height="600px">
@@ -25,6 +26,10 @@
     @else
         <img class="img-thumbnail" src="{{ asset("{$attachment->asset_path}/{$attachment->file_name}") }}" alt="" style="height:60vh">
     @endif
+
+
+@endif
+
 
 
 

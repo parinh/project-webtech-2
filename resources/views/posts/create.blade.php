@@ -38,8 +38,10 @@
             @enderror
         </div>
 
-        <p>Select image to upload:</p>
-            <input action="{{route('posts.store')}},upload.php" enctype="multipart/form-data" type="file" name="file" id="file">
+        <p>Select file to upload:</p>
+            <input action="{{route('posts.store')}}"  type="file" name="uploaded_file" id="file">
+
+
         <button type="submit" class="btn btn-primary">สร้าง</button>
     </form>
 

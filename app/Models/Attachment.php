@@ -9,4 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Attachment extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function attachment(){
+        return $this->belongsTo(Attachment::class);
+    }
 }

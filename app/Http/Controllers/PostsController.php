@@ -6,6 +6,7 @@ use App\Models\Attachment;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Gate;
+use function PHPUnit\Framework\isNull;
 
 class PostsController extends Controller
 {
@@ -42,6 +43,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        $attachment=Attachment::class;
         $this->authorize('create',Post::class);
         $request->validate([ //การส้รางกฎของ laravel บอกตามเงื่อนไข
             'topic' => 'required|min:5|max:255',
@@ -57,7 +59,10 @@ class PostsController extends Controller
 
         $uploaded_file = $request->file('uploaded_file');
 
-        if(is_null()) { //ติดตั้ง
+        if (isNull($uploaded_file)){
+
+        }
+        else { //ติดตั้ง
             $attachment = new Attachment();
             $attachment->post_id = $post->id;
             $attachment->file_type = $uploaded_file->getClientMimeType();
@@ -71,6 +76,7 @@ class PostsController extends Controller
                 $disk = 'images';
             }
             $path = $uploaded_file->storeAs('', $attachment->file_name, $disk);
+            $attachment->save();
         }
 
         return redirect()->route('posts.index');
@@ -88,6 +94,9 @@ class PostsController extends Controller
         $post = Post::findOrFail($id); //ถ้าหาไม่เจอให้ notfound เลย ไม่ null
         $post->view_count++;//เพิ่มค่า view count 1
         $post->save();
+
+        $attachment = Attachment::findOrFail($id);
+        $attachment->save();
         return view('posts.show', [
             'post' => $post,
             'attachment' => $attachment
