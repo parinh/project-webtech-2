@@ -26,7 +26,8 @@ class Post extends JsonResource
             'view_count' => $this->view_count,
             'is_popular' => $this->view_count > 1000,
             'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at
+            'updated_at' => $this->updated_at,
+            'attachments' => new AttachmentCollection($this->attachments),
         ];
 
     }
