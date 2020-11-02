@@ -131,12 +131,6 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         $post = Post::findOrFail($id);
-        $this
-            ->$this->authorize('update',$post);
-        $request->validate([ //การส้รางกฎของ laravel บอกตามเงื่อนไข
-            'topic' => 'required|min:5|max:255',
-            'content' => 'required|min:5|max:500'
-        ]);
 
         $post->topic = $request->input('topic');
         $post->content = $request->input('content');
@@ -154,6 +148,8 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->delete();
+        $attachment = Attachment::where('post_id',$id);
+        $attachment->delete();
         return redirect()->route('posts.index');
     }
 
