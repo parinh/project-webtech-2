@@ -40,12 +40,14 @@
                     <div style="height:600px">
                         <embed src="{{ asset("{$attachment->asset_path}/{$attachment->file_name}") }}" type="{{ $attachment->file_type }}" width="100%" height="600px">
                     </div>
-                    <form action="{{route('$attachment.destroy',['$attachment'=> $attachment->id])}}" method="POST">
-                        @method('DELETE') {{--ส่งไปหา destroy ด้วย id ใช้ method delete--}}
+
+                    <div action="{{route('$attachment.destroy',['$attachment'=> $attachment->id])}}" method="POST">
+                        @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-danger">
-                            ลบโพส
+                            ลบรูป
                         </button>
+                    </div>
                 @else
                     <img class="img-thumbnail" src="{{ asset("{$attachment->asset_path}/{$attachment->file_name}") }}" alt="" style="height:60vh">
                 @endif
