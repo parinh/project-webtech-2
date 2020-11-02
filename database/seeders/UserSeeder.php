@@ -28,6 +28,7 @@ class UserSeeder extends Seeder
         $user->password = Hash::make('neempass');
         $user->save();
 
+
         User::factory()
             ->count(10)
             ->hasPosts(4)

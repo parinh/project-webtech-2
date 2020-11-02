@@ -56,7 +56,7 @@
             @method('DELETE') {{--ส่งไปหา destroy ด้วย id ใช้ method delete--}}
             @csrf
             <button type="submit" class="btn btn-danger">
-                ลบรูป 
+                ลบรูป
             </button>
         </form>
         @endcan
