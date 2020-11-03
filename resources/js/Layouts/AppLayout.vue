@@ -234,8 +234,17 @@
             },
 
             logout() {
-                axios.post('/logout').then(response => {
-                    window.location = '/';
+                this.$fire({
+                    title: "Title",
+                    text: "text",
+                    type: "success",
+                    timer: 3000
+                }).then(r => {
+                    console.log(r.value);
+                    axios.post('/logout').then(response => {
+                        window.location = '/';
+                });
+
                 })
             },
         },

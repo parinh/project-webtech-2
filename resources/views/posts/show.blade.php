@@ -2,14 +2,19 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>{{$post->topic}}</h1>
+    <div class="text-white mt-5">
+        <h1>{{$post->topic}}</h1>
+    </div>
+    <hr>
+    <button class="btn btn-primary">Create: {{$post->created_at}}</button>
+    <button class="btn btn-info">View: {{ $post->view_count }}</button>
 
 
     @can('update',$post)  {{--ไปดูหน้า provider มันจะเลิือกใช้ abili ตามที่ตั้งไว้ก็เขียนว่าจะใช้อันไหน--}}
         <a href="{{ route('posts.edit', ['post' => $post->id]) }}"
            {{--บอกว่าให้ไปหน้า edit หน้า edit ต้องการ para ของ post ก็ให้ค่าไปด้วย โดยการส่งใช้ค่า id --}}
-        class="btn btn-info">
-            แก้ไขโพสนี้
+        class="btn btn-warning">
+            Edit Post
         </a>
     @endcan
 
@@ -17,18 +22,17 @@
     <form action="{{route('posts.attachmentUpdate',['id'=> $post->id])}}" method="POST" enctype="multipart/form-data">
         @method('PUT') {{--ส่งไปหา destroy ด้วย id ใช้ method delete--}}
         @csrf
-        <p>Select file to upload:</p>
-        <input   type="file" name="uploaded_file" id="file">
+        <p class="mt-3 text-white">Select file to Add more files:</p>
+        <input  class="btn btn-secondary" type="file" name="uploaded_file" id="file">
 
 
-        <button type="submit" class="btn btn-primary">สร้าง</button>
+        <button type="submit" class="btn btn-primary">Add</button>
     </form>
     @endcan
 
-    <p>Create: {{$post->created_at}}</p>
-    <p>View: {{ $post->view_count }}</p>
 
-    <p>{{ $post->content }}</p>
+
+    <p class="mt-5" style="font-size: 25px">{{ $post->content }}</p>
 
 
 @if(!$attachments->isEmpty())
@@ -43,8 +47,8 @@
         <form action="{{route('attachments.destroy',['attachment'=> $attachment->id])}}" method="POST">
             @method('DELETE') {{--ส่งไปหา destroy ด้วย id ใช้ method delete--}}
             @csrf
-            <button type="submit" class="btn btn-danger">
-                ลบรูป
+            <button type="submit" class="btn btn-danger mt-3">
+                Delete File
             </button>
         </form>
         @endcan
@@ -56,8 +60,8 @@
         <form action="{{route('attachments.destroy',['attachment'=> $attachment->id])}}" method="POST">
             @method('DELETE') {{--ส่งไปหา destroy ด้วย id ใช้ method delete--}}
             @csrf
-            <button type="submit" class="btn btn-danger">
-                ลบรูป
+            <button type="submit" class="btn btn-danger mt-3">
+                Delete File
             </button>
         </form>
         @endcan

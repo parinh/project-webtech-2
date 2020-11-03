@@ -17,7 +17,7 @@ class PostsController extends Controller
      */
     public function index() //แสดงข้แมูลหลายๆตัวออกมา
     {
-        $posts = Post::paginate(10); //สร้างตัวแปรใส่ค่าของข้อมูลใน db 1 หน้าต่อ 10 ข้อมูล
+        $posts = Post::paginate(5); //สร้างตัวแปรใส่ค่าของข้อมูลใน db 1 หน้าต่อ 10 ข้อมูล
         return view('posts.index',[
             'posts' => $posts
         ]); //ให้ไปหาไฟล์ posts/index แล้วก็ส่งค่าที่เป็น array ของ post ใน db ไปด้วย
