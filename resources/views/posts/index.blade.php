@@ -5,7 +5,7 @@
 {{--    <h1>All Posts</h1>--}}
 
     @if(Auth::check())
-        <div class="jumbotron bg-info text-white">
+        <div class="jumbotron bg-info text-white shadow-lg mb-5 rounded">
             <h1 style="text-align: center">Welcome {{Auth::user()->name}}</h1>
         </div>
 
@@ -22,7 +22,7 @@
 
     @foreach($posts as $post) {{--loop ที่ให้ค่าเข้ามาวน ตัวเดียววนในตัวเยอะ--}}
     <div class="row">
-        <div class="card mb-3 col-sm bg-dark text-white" style="width: 18rem;">
+        <div class="card mb-3 col-sm bg-dark text-white shadow-lg mb-5 rounded" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">{{ $post->topic }}</h5> {{--เอามาบางค่า--}}
                 <p class="card-text">{{ $post->created_at }}</p>

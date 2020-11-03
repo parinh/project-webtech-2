@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
 {{--        link font--}}
-        <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
