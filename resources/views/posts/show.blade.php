@@ -70,8 +70,20 @@
 
     @endforeach
 
-
 @endif
+
+    @foreach($comments as $comment) {{--loop ที่ให้ค่าเข้ามาวน ตัวเดียววนในตัวเยอะ--}}
+    <div class="row">
+        <div class="card mb-3 col-sm bg-dark text-white shadow-lg mb-5 rounded" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ $comment->commentname }}</h5> {{--เอามาบางค่า--}}
+                <p class="card-text">{{ $comment->sentence }}</p>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+
 
 
 

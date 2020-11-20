@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attachment;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Gate;
@@ -94,10 +95,12 @@ class PostsController extends Controller
         $post->save();
 
         $attachments = $post->attachments;
+        $comments = $post->comments;
 
         return view('posts.show', [
             'post' => $post,
-            'attachments' => $attachments
+            'attachments' => $attachments,
+            'comments' => $comments
         ]);
     }
 
