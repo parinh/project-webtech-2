@@ -43,6 +43,9 @@ Route::resource('/posts',\App\Http\Controllers\PostsController::class); //บอ
 
 Route::resource('/attachments',\App\Http\Controllers\AttachmentController::class);
 
+Route::resource('/comments',\App\Http\Controllers\CommentsController::class);
+
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');

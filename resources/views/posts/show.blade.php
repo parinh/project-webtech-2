@@ -73,32 +73,57 @@
 @endif
     <hr>
 
+    <p style="font-size: 50px;color: white">Comment Zone</p>
     @foreach($comments as $comment) {{--loop ที่ให้ค่าเข้ามาวน ตัวเดียววนในตัวเยอะ--}}
     <div class="row">
-        <div class="card mb-3 col-sm bg-dark text-white shadow-lg mb-5 rounded" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{ $comment->commentname }}</h5> {{--เอามาบางค่า--}}
-                <p class="card-text">{{ $comment->sentence }}</p>
+        <div class="card mb-3 col-sm text-white shadow-lg " style="background-color: darkslategray">
+
+            <div class="card-header text-center" style="font-size: 25px">
+                {{ $comment->commentname }}
             </div>
+
+            <div class="card-body">
+                <p class="card-text">Said: {{ $comment->sentence }}</p>
+            </div>
+
+            <div class="card-footer text-muted">
+                <small>Created At -{{$comment->created_at}}</small>
+            </div>
+
+            @can('update',$post)  {{--ไปดูหน้า provider มันจะเลิือกใช้ abili ตามที่ตั้งไว้ก็เขียนว่าจะใช้อันไหน--}}
+            <form action="{{route('comments.destroy',['comment'=> $comment->id])}}" method="POST">
+                @method('DELETE') {{--ส่งไปหา destroy ด้วย id ใช้ method delete--}}
+                @csrf
+                <button type="submit" class="btn btn-danger mt-3">
+                    Delete This Comment
+                </button>
+            </form>
+            @endcan
         </div>
     </div>
     @endforeach
-
+<hr>
+<p style="font-size: 50px;color: white">Create More Comment ..</p>
+    <div class="mb-3 col-sm" style="background-color: #2d3748;width: 100%" >
+        <br>
     <form action="{{route('posts.createComment',['id'=> $post->id])}}" method="POST">
         @method('POST')
         @csrf
         <div class="form-group">
-            <label >name</label>
-            <input type="text" class="form-control" id="commentname"name="commentname">
+            <label style="font-size: 20px;color: white">Comment's Name</label>
+            <input type="text" class="form-control" id="commentname"name="commentname" placeholder="Create Your Name Here ..">
         </div>
 
         <div class="form-group">
-            <label >comment</label>
-            <input type="text" class="form-control" id="sentence" name="sentence">
+            <label style="font-size: 20px;color: white">Message</label>
+            <input type="text" class="form-control" id="sentence" name="sentence" placeholder="Write The Message Here ..">
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">SEND</button>
     </form>
+        <br>
+
+    </div>
 
 
 
