@@ -28,6 +28,10 @@ Route::get('/page',[PagesController::class,'index'])//อีกวิธีใ�
 Route::put('/attachmentUpdate/{id}',[PostsController::class,'attachmentUpdate'])
     ->name('posts.attachmentUpdate');
 
+Route::post('/createComment/{id}',[PostsController::class,'createComment'])
+    ->name('posts.createComment');
+
+
 Route::get('/pages/test-file', [PagesController::class, 'test_file']);
 
 
@@ -38,6 +42,7 @@ Route::get('/pages/{id}',[PagesController::class,'show']) //เหมือน�
 Route::resource('/posts',\App\Http\Controllers\PostsController::class); //บอกตีวเดียวรวมๆเลย มันใช้ action ได้ทุกตัวเลย
 
 Route::resource('/attachments',\App\Http\Controllers\AttachmentController::class);
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');

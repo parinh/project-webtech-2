@@ -178,5 +178,23 @@ class PostsController extends Controller
         return redirect()->route('posts.show',['post' => $id]);
     }
 
+    public function createComment(Request $request,$id){
+
+        $comment = new Comment();
+
+        $comment->post_id = $id;
+        $comment->commentname = $request->input('commentname');
+        $comment->sentence = $request->input('sentence');
+
+        $comment->save();
+
+        return redirect()->route('posts.show',['post' => $id]);
+
+
+
+
+
+    }
+
 
 }

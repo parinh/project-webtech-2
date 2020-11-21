@@ -71,6 +71,7 @@
     @endforeach
 
 @endif
+    <hr>
 
     @foreach($comments as $comment) {{--loop ที่ให้ค่าเข้ามาวน ตัวเดียววนในตัวเยอะ--}}
     <div class="row">
@@ -83,7 +84,21 @@
     </div>
     @endforeach
 
+    <form action="{{route('posts.createComment',['id'=> $post->id])}}" method="POST">
+        @method('POST')
+        @csrf
+        <div class="form-group">
+            <label >name</label>
+            <input type="text" class="form-control" id="commentname"name="commentname">
+        </div>
 
+        <div class="form-group">
+            <label >comment</label>
+            <input type="text" class="form-control" id="sentence" name="sentence">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 
 
 
