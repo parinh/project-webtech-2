@@ -153,6 +153,8 @@ class PostsController extends Controller
         $post->delete();
         $attachment = Attachment::where('post_id',$id);
         $attachment->delete();
+        $comment = Comment::Where('post_id',$id);
+        $comment->delete();
         return redirect()->route('posts.index');
     }
 
